@@ -1,4 +1,4 @@
-# portrait-restyle
+# 증명사진 기반 인물 카드 생성
 
 증명사진 한 장을 받아 여러 화풍의 인물 카드를 생성하는 **AI 파이프라인 + 서빙 인프라**.
 얼굴 임베딩만 유지하고 의상·배경·조명은 새로 그린다. 직업·12지신·컨셉·웹툰·원본 5종의 카드를 만든다.
@@ -22,7 +22,7 @@ flowchart TB
         GEM["Gemini 워커<br/>SSR 카드 (백엔드팀)"]
     end
 
-    subgraph mine["내가 담당 — portrait-restyle (이 저장소)"]
+    subgraph mine["내가 담당 — portrait-card-generation (이 저장소)"]
         W["EC2 CPU 워커<br/>직업 · 12지신 생성 (inswapper) + 사전 마스크 누끼<br/>원본 크롭 · S3 업로드 · 콜백"]
         GPU["GPU 모델 서비스 (GPU 1 · 직렬)<br/>ComfyUI + PuLID / Kontext + 업스케일<br/>BiRefNet 누끼 · /cutout · /card-cutout"]
         CUT["cutout-cpu (EC2)<br/>BiRefNet CPU 누끼 · 정지 (롤백용)"]
